@@ -64,7 +64,17 @@ directive
     | stringList
     | numberRanges
     | properties
+    | byteSizeArg
+    | timeDurationArg
   )*?
+  ;
+
+byteSizeArg
+  : BYTE_SIZE
+  ;
+
+timeDurationArg
+  : TIME_DURATION
   ;
 
 ifStatement
@@ -140,7 +150,7 @@ numberRange
  ;
 
 value
- : String | Number | Column | Bool
+ : String | Number | Column | Bool | BYTE_SIZE | TIME_DURATION
  ;
 
 ecommand
@@ -310,4 +320,20 @@ fragment Int
 
 fragment Digit
  : [0-9]
+ ;
+
+BYTE_SIZE
+ : Digit+ ('.' Digit+)? BYTE_UNIT
+ ;
+
+TIME_DURATION
+ : Digit+ ('.' Digit+)? TIME_UNIT
+ ;
+
+fragment BYTE_UNIT
+ : [KMGTP]? 'B'
+ ;
+
+fragment TIME_UNIT
+ : 'ns' | 'ms' | 's' | 'm' | 'h' | 'd'
  ;

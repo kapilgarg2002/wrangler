@@ -17,6 +17,8 @@
 package io.cdap.wrangler.api;
 
 import io.cdap.wrangler.api.annotations.PublicEvolving;
+import io.cdap.wrangler.api.parser.ByteSize;
+import io.cdap.wrangler.api.parser.TimeDuration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -71,6 +73,18 @@ public final class Row implements Serializable {
     this.columns.add(name);
     this.values.add(value);
   }
+
+  public Row(String string, ByteSize byteSize, String string2, TimeDuration timeDuration) {
+    //TODO Auto-generated constructor stub
+}
+
+  public Row(String string, String string2, String string3, TimeDuration timeDuration) {
+    //TODO Auto-generated constructor stub
+}
+
+  public Row(String string, ByteSize byteSize, String string2, String string3) {
+    //TODO Auto-generated constructor stub
+}
 
   /**
    * Gets a column name by index.
